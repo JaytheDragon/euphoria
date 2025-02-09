@@ -64,11 +64,15 @@
             position: relative;
             width: 200px;
             height: 300px;
-            background: rgba(0, 0, 0, 0.8);
+            background-size: cover;
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-image: url('./ui 에셋/캐릭배경.png'), url('./ui 에셋/컬러포인트+컬러 그라데이션.png');
         }
 
         .character-card:hover {
@@ -78,13 +82,19 @@
 
         .character-card img {
             width: 100%;
-            height: 70%;
+            height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
         }
 
         .character-card h3 {
             text-align: center;
             margin: 10px 0;
+            position: relative;
+            z-index: 2;
         }
 
         .info-box, .description-box {
@@ -207,32 +217,32 @@
     <img src="./ui 에셋/오나먼트 아래.png" alt="Ornaments" class="ornament-bottom">
 
     <div class="container">
-        <div class="character-card" onclick="openModal('깻잎', '깻잎 캐릭터 배경', './ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png', './ui 에셋/깻잎 캐릭배경.png', './ui 에셋/깻잎 로고.png')">
+        <div class="character-card" onclick="openModal('깻잎', '깻잎 캐릭터 배경', './ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png', './ui 에셋/깻잎 캐릭배경.png', './ui 에셋/깻잎 로고.png')" style="background-image: url('./ui 에셋/깻잎 캐릭배경.png'), url('./ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
             <img src="./ui 에셋/캐릭배경.png" alt="깻잎">
             <h3>깻잎</h3>
         </div>
 
-        <div class="character-card" onclick="openModal('네블', '네블 캐릭터 배경', './ui 에셋/네블 컬러포인트+컬러 그라데이션.png', './ui 에셋/네블 캐릭 배경.png', './ui 에셋/네블 로고.png')">
+        <div class="character-card" onclick="openModal('네블', '네블 캐릭터 배경', './ui 에셋/네블 컬러포인트+컬러 그라데이션.png', './ui 에셋/네블 캐릭 배경.png', './ui 에셋/네블 로고.png')" style="background-image: url('./ui 에셋/네블 캐릭배경.png'), url('./ui 에셋/네블 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
             <img src="./ui 에셋/캐릭배경.png" alt="네블">
             <h3>네블</h3>
         </div>
 
-        <div class="character-card" onclick="openModal('대호', '대호 캐릭터 배경', './ui 에셋/대호 컬러포인트+컬러 그라데이션.png', './ui 에셋/대호 캐릭 배경.png', './ui 에셋/대호 로고.png')">
+        <div class="character-card" onclick="openModal('대호', '대호 캐릭터 배경', './ui 에셋/대호 컬러포인트+컬러 그라데이션.png', './ui 에셋/대호 캐릭 배경.png', './ui 에셋/대호 로고.png')" style="background-image: url('./ui 에셋/대호 캐릭배경.png'), url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
             <img src="./ui 에셋/캐릭배경.png" alt="대호">
             <h3>대호</h3>
         </div>
 
-        <div class="character-card" onclick="openModal('묘한', '묘한 캐릭터 배경', './ui 에셋/묘한 컬러포인트+컬러 그라데이션.png', './ui 에셋/묘한 캐릭 배경.png', './ui 에셋/묘한 로고.png')">
+        <div class="character-card" onclick="openModal('묘한', '묘한 캐릭터 배경', './ui 에셋/묘한 컬러포인트+컬러 그라데이션.png', './ui 에셋/묘한 캐릭 배경.png', './ui 에셋/묘한 로고.png')" style="background-image: url('./ui 에셋/묘한 캐릭배경.png'), url('./ui 에셋/묘한 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
             <img src="./ui 에셋/캐릭배경.png" alt="묘한">
             <h3>묘한</h3>
         </div>
 
-        <div class="character-card" onclick="openModal('바삭', '바삭 캐릭터 배경', './ui 에셋/바삭 컬러포인트+컬러 그라데이션.png', './ui 에셋/바삭 캐릭배경.png', './ui 에셋/바삭 로고.png')">
+        <div class="character-card" onclick="openModal('바삭', '바삭 캐릭터 배경', './ui 에셋/바삭 컬러포인트+컬러 그라데이션.png', './ui 에셋/바삭 캐릭배경.png', './ui 에셋/바삭 로고.png')" style="background-image: url('./ui 에셋/바삭 캐릭배경.png'), url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
             <img src="./ui 에셋/캐릭배경.png" alt="바삭">
             <h3>바삭</h3>
         </div>
 
-        <div class="character-card" onclick="openModal('이랑', '이랑 캐릭터 배경', './ui 에셋/이랑 컬러포인트+컬러 그라데이션.png', './ui 에셋/이랑 캐릭배경.png', './ui 에셋/이랑 로고.png')">
+        <div class="character-card" onclick="openModal('이랑', '이랑 캐릭터 배경', './ui 에셋/이랑 컬러포인트+컬러 그라데이션.png', './ui 에셋/이랑 캐릭배경.png', './ui 에셋/이랑 로고.png')" style="background-image: url('./ui 에셋/이랑 캐릭배경.png'), url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
             <img src="./ui 에셋/캐릭배경.png" alt="이랑">
             <h3>이랑</h3>
         </div>
