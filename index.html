@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>유포리아 캐릭터 정보</title>
     <style>
+        @font-face {
+            font-family: 'Hakgyoansim Byeolbichhaneul';
+            src: url('./fonts/Hakgyoansim Byeolbichhaneul OTF L.otf') format('opentype');
+        }
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Hakgyoansim Byeolbichhaneul', Arial, sans-serif;
             background: url('./UI_png/배경/배경_글리터+별+그라데이션.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -82,12 +86,14 @@
 
         .character-card img {
             width: 100%;
-            height: 100%;
+            height: 66%;
             object-fit: cover;
+            object-position: top; /* Show the top part of the image */
+            transform: scale(1.5); /* Scale the image to zoom in */
             position: absolute;
-            top: 0;
+            top: 12%;
             left: 0;
-            z-index: 1;
+            z-index: -1;
         }
 
         .character-card h3 {
@@ -129,8 +135,6 @@
             z-index: 3;
         }
 
-
-
         .modal {
             position: fixed;
             top: 0;
@@ -149,30 +153,32 @@
         }
 
         .modal-content {
-            <!-- background: url('./ui 에셋/[캐릭터 배경].png') no-repeat center center; -->
+            display: flex;
+            align-items: center;
             background-size: contain;
             padding: 50px;
-            border-radius: 100px;
-            max-width: 300vw;
-            text-align: center;
+            border-radius: 10px;
+            max-width: 80vw;
+            text-align: left;
             color: white;
-            position: 100vw;
             z-index: 3; /* Above the dark background */
         }
 
+        .modal-content img {
+            width: 40%;
+            height: auto;
+            margin-right: 20px;
+        }
+
         .modal-content h2 {
-            margin: 10vw 0;
-            margin-left: 10vw;
+            margin: 0 0 10px 0;
         }
 
         .modal-content p {
-            margin: 5vw 0;
-            margin-left: 10vw;
+            margin: 0 0 20px 0;
         }
 
         .close-btn {
-            margin-bottom: auto;
-            margin-right: -50vw;
             padding: 10px 20px;
             background: #4B006E;
             color: white;
@@ -205,6 +211,16 @@
                 width: 40vw;
                 padding: 3vh;
             }
+
+            .modal-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-content img {
+                width: 80%;
+                margin: 0 0 20px 0;
+            }
         }
     </style>
 </head>
@@ -217,34 +233,28 @@
     <img src="./ui 에셋/오나먼트 아래.png" alt="Ornaments" class="ornament-bottom">
 
     <div class="container">
-        <div class="character-card" onclick="openModal('깻잎', '깻잎 캐릭터 배경', './ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png', './ui 에셋/깻잎 캐릭배경.png', './ui 에셋/깻잎 로고.png')" style="background-image: url('./ui 에셋/깻잎 캐릭배경.png'), url('./ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./ui 에셋/캐릭배경.png" alt="깻잎">
-            <h3>깻잎</h3>
+        <div class="character-card" onclick="openModal('바삭', '바삭 캐릭터 배경', './character/바삭_스텐딩_의상.png', './character/바삭_스텐딩_의상.png', './ui 에셋/유포리아 로고.png')" style="background-image: url('./ui 에셋/바삭 캐릭배경.png'), url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
+            <img src="./character/바삭_스텐딩_의상.png" alt="바삭">
         </div>
 
-        <div class="character-card" onclick="openModal('네블', '네블 캐릭터 배경', './ui 에셋/네블 컬러포인트+컬러 그라데이션.png', './ui 에셋/네블 캐릭 배경.png', './ui 에셋/네블 로고.png')" style="background-image: url('./ui 에셋/네블 캐릭배경.png'), url('./ui 에셋/네블 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./ui 에셋/캐릭배경.png" alt="네블">
-            <h3>네블</h3>
+        <div class="character-card" onclick="openModal('깻잎', '깻잎 캐릭터 배경', './character/깻잎_스텐딩_의상.png', './character/깻잎_스텐딩_의상.png', './ui 에셋/깻잎 로고.png')" style="background-image: url('./ui 에셋/깻잎 캐릭배경.png'), url('./ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
+            <img src="./character/깻잎_스텐딩_의상.png" alt="깻잎">
         </div>
 
-        <div class="character-card" onclick="openModal('대호', '대호 캐릭터 배경', './ui 에셋/대호 컬러포인트+컬러 그라데이션.png', './ui 에셋/대호 캐릭 배경.png', './ui 에셋/대호 로고.png')" style="background-image: url('./ui 에셋/대호 캐릭배경.png'), url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./ui 에셋/캐릭배경.png" alt="대호">
-            <h3>대호</h3>
+        <div class="character-card" onclick="openModal('네블', '네블 캐릭터 배경', './character/네블_스텐딩_의상.png', './character/네블_스텐딩_의상.png', './ui 에셋/네블 로고.png')" style="background-image: url('./ui 에셋/네블 캐릭배경.png'), url('./ui 에셋/네블 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
+            <img src="./character/네블_스텐딩_의상.png" alt="네블">
         </div>
 
-        <div class="character-card" onclick="openModal('묘한', '묘한 캐릭터 배경', './ui 에셋/묘한 컬러포인트+컬러 그라데이션.png', './ui 에셋/묘한 캐릭 배경.png', './ui 에셋/묘한 로고.png')" style="background-image: url('./ui 에셋/묘한 캐릭배경.png'), url('./ui 에셋/묘한 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./ui 에셋/캐릭배경.png" alt="묘한">
-            <h3>묘한</h3>
+        <div class="character-card" onclick="openModal('묘한', '묘한 캐릭터 배경', './character/묘한_스텐딩_의상.png', './character/묘한_스텐딩_의상.png', './ui 에셋/묘한 로고.png')" style="background-image: url('./ui 에셋/묘한 캐릭배경.png'), url('./ui 에셋/묘한 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
+            <img src="./character/묘한_스텐딩_의상.png" alt="묘한">
         </div>
 
-        <div class="character-card" onclick="openModal('바삭', '바삭 캐릭터 배경', './ui 에셋/바삭 컬러포인트+컬러 그라데이션.png', './ui 에셋/바삭 캐릭배경.png', './ui 에셋/바삭 로고.png')" style="background-image: url('./ui 에셋/바삭 캐릭배경.png'), url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./ui 에셋/캐릭배경.png" alt="바삭">
-            <h3>바삭</h3>
+        <div class="character-card" onclick="openModal('대호', '대호 캐릭터 배경', './character/대호_스텐딩_의상.png', './character/대호_스텐딩_의상.png', './ui 에셋/대호 로고.png')" style="background-image: url('./ui 에셋/대호 캐릭배경.png'), url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
+            <img src="./character/test.png" alt="대호">
         </div>
 
-        <div class="character-card" onclick="openModal('이랑', '이랑 캐릭터 배경', './ui 에셋/이랑 컬러포인트+컬러 그라데이션.png', './ui 에셋/이랑 캐릭배경.png', './ui 에셋/이랑 로고.png')" style="background-image: url('./ui 에셋/이랑 캐릭배경.png'), url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./ui 에셋/캐릭배경.png" alt="이랑">
-            <h3>이랑</h3>
+        <div class="character-card" onclick="openModal('이랑', '이랑 캐릭터 배경', './character/이랑_스텐딩_의상.png', './character/이랑_스텐딩_의상.png', './ui 에셋/이랑 로고.png')" style="background-image: url('./ui 에셋/이랑 캐릭배경.png'), url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
+            <img src="./character/이랑_스텐딩_의상.png" alt="이랑">
         </div>
     </div>
 
@@ -261,9 +271,12 @@
 
     <div class="modal" id="modal">
         <div class="modal-content">
-            <h2 id="modal-title">Character Name</h2>
-            <p id="modal-description">Description</p>
-            <img id="modal-image" src="" alt="캐릭터 사진 여기에" style="margin-top: 20px; width: 100%;">
+            <img id="modal-image" src="" alt="캐릭터 사진 여기에">
+            <div>
+                <h2 id="modal-title">Character Name</h2>
+                <p id="modal-description">Description</p>
+                <button class="close-btn" onclick="closeModal()">닫기</button>
+            </div>
         </div>
     </div>
 
