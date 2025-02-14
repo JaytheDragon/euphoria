@@ -195,14 +195,15 @@
 
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
                 gap: 15px;
-                padding: 0;
+                padding: 0 20px;
+                margin-top: 100px;
             }
 
             .character-card {
-                width: 140px;
-                height: 210px;
+                width: 100%;
+                height: auto;
             }
 
             header img {
@@ -210,8 +211,12 @@
             }
 
             .info-box, .description-box {
-                width: 40vw;
+                width: 90vw;
                 padding: 3vh;
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 20px auto;
             }
 
             .modal-content {
@@ -277,6 +282,7 @@
             <div>
                 <h2 id="modal-title">Character Name</h2>
                 <p id="modal-description">Description</p>
+                <button class="close-btn" onclick="closeModal()">닫기</button>
             </div>
         </div>
     </div>
