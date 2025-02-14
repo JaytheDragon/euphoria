@@ -9,13 +9,15 @@
             font-family: 'Hakgyoansim Byeolbichhaneul';
             src: url('./fonts/Hakgyoansim Byeolbichhaneul OTF L.otf') format('opentype');
         }
-        body {
+        html, body {
             margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto; /* Allow scrolling */
             font-family: 'Hakgyoansim Byeolbichhaneul', Arial, sans-serif;
             background: url('./UI_png/배경/배경_글리터+별+그라데이션.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            overflow: hidden;
         }
 
         .ornament-top {
@@ -250,7 +252,7 @@
         </div>
 
         <div class="character-card" onclick="openModal('대호', '대호 캐릭터 배경', './character/대호_스텐딩_의상.png', './character/대호_스텐딩_의상.png', './ui 에셋/대호 로고.png')" style="background-image: url('./ui 에셋/대호 캐릭배경.png'), url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./character/test.png" alt="대호">
+            <img src="./character/test_2.png" alt="대호">
         </div>
 
         <div class="character-card" onclick="openModal('이랑', '이랑 캐릭터 배경', './character/이랑_스텐딩_의상.png', './character/이랑_스텐딩_의상.png', './ui 에셋/이랑 로고.png')" style="background-image: url('./ui 에셋/이랑 캐릭배경.png'), url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
@@ -275,7 +277,6 @@
             <div>
                 <h2 id="modal-title">Character Name</h2>
                 <p id="modal-description">Description</p>
-                <button class="close-btn" onclick="closeModal()">닫기</button>
             </div>
         </div>
     </div>
