@@ -195,15 +195,14 @@
 
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 15px;
-                padding: 0 20px;
-                margin-top: 100px;
+                padding: 0;
             }
 
             .character-card {
-                width: 100%;
-                height: auto;
+                width: 140px;
+                height: 210px;
             }
 
             header img {
@@ -211,12 +210,8 @@
             }
 
             .info-box, .description-box {
-                width: 90vw;
+                width: 40vw;
                 padding: 3vh;
-                position: relative;
-                top: auto;
-                right: auto;
-                margin: 20px auto;
             }
 
             .modal-content {
@@ -227,6 +222,24 @@
             .modal-content img {
                 width: 80%;
                 margin: 0 0 20px 0;
+            }
+        }
+
+        @media (orientation: portrait) {
+            .modal-content {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .modal-content img {
+                width: 40%;
+                margin: 0;
+            }
+
+            .info-box, .description-box {
+                width: 30vw;
+                padding: 2vh;
+                margin-left: 10px;
             }
         }
     </style>
