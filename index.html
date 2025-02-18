@@ -31,11 +31,11 @@
         }
 
         .ornament-bottom {
-            position: absolute;
+            position: relative;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 2; /* Keep ornaments in front */
+            z-index: 0; /* Keep ornaments behind */
             width: 100%;
             pointer-events: none;
         }
@@ -109,34 +109,51 @@
 
         .info-box, .description-box {
             display: none; /* Hide by default */
+            position: absolute;
+            right: 0; /* Start at the right edge */
+            background-size: contain;
+            border-radius: 10px;
+            color: white;
+            z-index: 3;
         }
 
         .info-box {
-            position: absolute;
             top: 5vh; /* Adjust as needed */
-            right: 0vw; /* Adjust as needed */
-            width: 65vw; /* Increase size */
+            width: 45vw; /* Increase size */
             background: url('./ui 에셋/인포 박스.png') no-repeat center center;
             background-size: contain;
-            padding: 10vh; /* Increase padding */
-            border-radius: 10px;
+            padding: 20vh; /* Increase padding */
             text-align: center;
-            color: white;
-            z-index: 3;
         }
 
         .description-box {
-            position: absolute;
-            top: 35vh; /* Adjust as needed */
-            right: 0vw; /* Adjust as needed */
-            width: 52vw; /* Increase size */
+            top: 45vh; /* Adjust as needed */
+            width: 48vw; /* Increase size */
             background: url('./ui 에셋/설명 박스.png') no-repeat center center;
             background-size: contain;
             padding: 20vh; /* Increase padding */
-            border-radius: 10px;
             text-align: center;
-            color: white;
-            z-index: 3;
+        }
+
+        .info-text{
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0vh 26vw; /* Adjust padding for text */
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .description-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0vh 29vw; /* Adjust padding for text */
+            box-sizing: border-box;
+            text-align: left;
         }
 
         .modal {
@@ -219,6 +236,10 @@
                 padding: 3vh;
             }
 
+            .info-text, .description-text {
+                padding: 10px;
+            }
+
             .modal-content {
                 flex-direction: column;
                 align-items: center;
@@ -235,7 +256,7 @@
             .modal-content {
                 flex-direction: column;
                 align-items: center;
-                margin-top: 60vh;
+                margin-top: 120vh;
             }
 
             .modal-content img {
@@ -245,15 +266,32 @@
                 object-fit: contain; /* Ensure the image is fully visible */
             }
 
-            .info-box, .description-box {
-                width: 80vw;
+            .info-box{
+                width: 65vw;
                 padding: 3vh;
                 margin: 10px 0;
+                padding: 23vh;
                 position: relative;
             }
 
+            .description-box {
+                width: 52vw;
+                padding: 3vh;
+                margin: 10px 0;
+                padding: 30vh;
+                position: relative;
+            }
+
+            .info-text{
+                padding: 3vh 45vw;
+            }
+
+            .description-text {
+                padding: 10vh 50vw;
+            }
+
             .close-btn {
-                margin-top: 20px;
+                margin-top: 50px;
             }
         }
     </style>
@@ -264,7 +302,6 @@
     </header>
 
     <img src="./ui 에셋/오나먼트 위.png" alt="Ornaments" class="ornament-top">
-    <img src="./ui 에셋/오나먼트 아래.png" alt="Ornaments" class="ornament-bottom">
 
     <div class="container">
         <div class="character-card" onclick="openModal('바삭', '바삭 캐릭터 배경', './character/바삭_스텐딩_의상.png', './character/바삭_스텐딩_의상.png', './ui 에셋/유포리아 로고.png')" style="background-image: url('./ui 에셋/바삭 캐릭배경.png'), url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
@@ -293,14 +330,18 @@
     </div>
 
     <div class="info-box" id="info-box">
-        <h2>Info Box</h2>
-        <p>Some information here</p>
+        <div class="info-text">
+            <h2>Info Box</h2>
+            <p>Some information here</p>
+        </div>
     </div>
 
     <div class="description-box" id="description-box">
-        <h2>Description Box</h2>
-        <p>Some description here</p>
-        <button class="close-btn" onclick="closeModal()">닫기</button>
+        <div class="description-text">
+            <h2>Description Box</h2>
+            <p>Some description here</p>
+            <button class="close-btn" onclick="closeModal()">닫기</button>
+        </div>
     </div>
 
     <div class="modal" id="modal">
@@ -313,15 +354,21 @@
             </div>
         </div>
         <div class="info-box" id="modal-info-box">
-            <h2>Info Box</h2>
-            <p>Some information here</p>
+            <div class="info-text">
+                <h2>Info Box</h2>
+                <p>Some information here</p>
+            </div>
         </div>
         <div class="description-box" id="modal-description-box">
-            <h2>Description Box</h2>
-            <p>Some description here</p>
-            <button class="close-btn" onclick="closeModal()">닫기</button>
+            <div class="description-text">
+                <h2>Description Box</h2>
+                <p>Some description here</p>
+                <button class="close-btn" onclick="closeModal()">닫기</button>
+            </div>
         </div>
     </div>
+
+    <img src="./ui 에셋/오나먼트 아래.png" alt="Ornaments" class="ornament-bottom">
 
     <script>
         const defaultLogo = "./ui 에셋/유포리아 로고.png";
@@ -343,5 +390,6 @@
             document.getElementById('modal-description-box').style.display = 'none'; // Hide description box
         }
     </script>
+
 </body>
 </html>
