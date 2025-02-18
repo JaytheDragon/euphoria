@@ -63,7 +63,7 @@
             gap: 30px; /* Reduce the gap for horizontal closeness */
             justify-items: center;
             padding: 50px 300px;
-            margin-top: 100px; /* Adjust for fixed header height */
+            margin-top: 140px; /* Adjust for fixed header height */
             position: relative;
             z-index: 1;
         }
@@ -147,9 +147,11 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.8); /* Only darken the background */
             display: none;
-            justify-content: left;
-            align-items: left;
+            justify-content: center;
+            align-items: center;
             z-index: 1; /* Below ornaments */
+            flex-direction: column; /* Stack elements vertically */
+            overflow-y: auto; /* Allow vertical scrolling */
         }
 
         .modal.active {
@@ -189,6 +191,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 20px;
         }
 
         .close-btn:hover {
@@ -224,24 +227,33 @@
             .modal-content img {
                 width: 80%;
                 margin: 0 0 20px 0;
+                object-fit: contain; /* Ensure the image is fully visible */
             }
         }
 
         @media (orientation: portrait) {
             .modal-content {
-                flex-direction: row;
-                align-items: flex-start;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 60vh;
             }
 
             .modal-content img {
-                width: 40%;
-                margin: 0;
+                width: 80%;
+                height: auto;
+                margin: 0 0 20px 0;
+                object-fit: contain; /* Ensure the image is fully visible */
             }
 
             .info-box, .description-box {
-                width: 30vw;
-                padding: 2vh;
-                margin-left: 10px;
+                width: 80vw;
+                padding: 3vh;
+                margin: 10px 0;
+                position: relative;
+            }
+
+            .close-btn {
+                margin-top: 20px;
             }
         }
     </style>
@@ -300,6 +312,15 @@
                 <button class="close-btn" onclick="closeModal()">닫기</button>
             </div>
         </div>
+        <div class="info-box" id="modal-info-box">
+            <h2>Info Box</h2>
+            <p>Some information here</p>
+        </div>
+        <div class="description-box" id="modal-description-box">
+            <h2>Description Box</h2>
+            <p>Some description here</p>
+            <button class="close-btn" onclick="closeModal()">닫기</button>
+        </div>
     </div>
 
     <script>
@@ -310,16 +331,16 @@
             document.getElementById('modal-description').textContent = description;
             document.getElementById('modal-image').src = background;
             document.getElementById('logo').src = logo; // Change logo
-            document.getElementById('info-box').style.display = 'block'; // Show info box
-            document.getElementById('description-box').style.display = 'block'; // Show description box
+            document.getElementById('modal-info-box').style.display = 'block'; // Show info box
+            document.getElementById('modal-description-box').style.display = 'block'; // Show description box
             document.getElementById('modal').classList.add('active');
         }
 
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
             document.getElementById('logo').src = defaultLogo; // Revert to default logo
-            document.getElementById('info-box').style.display = 'none'; // Hide info box
-            document.getElementById('description-box').style.display = 'none'; // Hide description box
+            document.getElementById('modal-info-box').style.display = 'none'; // Hide info box
+            document.getElementById('modal-description-box').style.display = 'none'; // Hide description box
         }
     </script>
 </body>
