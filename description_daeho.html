@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>대호 캐릭터 설명</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./ui 에셋/대호 로고.png" type="image/png">
+  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
+</head>
+<body>
+    <script>
+        // On page load, ensure the page fades in.
+        document.addEventListener("DOMContentLoaded", function() {
+          document.body.classList.add("fade-in"); // For future use if needed.
+        });
+      
+        // Use this function to navigate with a fade transition.
+        function transitionTo(url) {
+          // Remove any fade-in class and add fade-out
+          document.body.classList.remove("fade-in");
+          document.body.classList.add("fade-out");
+          // Wait for the fade-out to finish (0.5s) then navigate.
+          setTimeout(function(){
+            window.location.href = url;
+          }, 500);
+        }
+      </script>
+      
+  <!-- Fixed header & top ornament -->
+  <header>
+    <img id="logo" src="./ui 에셋/대호 로고.png" alt="Euphoria Logo">
+  </header>
+  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+
+  <!-- .desc-page: row layout with .desc-left & .desc-right -->
+  <div class="desc-page">
+    <!-- Left side: larger character -->
+    <div class="desc-left">
+      <img src="./character/test_2.png" alt="대호" class="desc-character-image" />
+    </div>
+
+    <!-- Right side: two boxes stacked, top-aligned -->
+    <div class="desc-right">
+        <div class="info-box-static">
+          <h2>이름 : 대호 DAEHO</h2>
+          <p>종족 : 백두산 호랑이</p>
+          <p>나이 : 23</p>
+          <p>키: 174 cm</p>
+          <p>몸무게: 75 kg</p>
+          <p>혈액형: B형</p>
+          <P>역할 : 드럼</P>
+          <p>성격 키워드 : 슈퍼 E, 사교적, 산만함, 개구쟁이</p>
+        </div>
+  
+        <div class="description-box-static">
+          <p>남들 앞에 나서서 주목을 받는 걸 즐기는 천생 아이돌이자 핵인싸이다. 적당한 집에서 적당한 교육을 받으며 모난 곳 없이 자란 평범한 대학생이다. 친구가 많지만 자신 주변은 다들 가벼운 관계뿐이
+            라며 항상 진정한 친구 타령을 한다. 본인의 과하게 나서는 성격이 남에게 부담스러울 수도 있다는 사실을 전혀 인지하지 못하고 있다.
+            드럼을 시작한 계기는 건강하게 스트레스를 해소할 수 있기도 하고, 소리가 크니까 남들이 나를 더 봐 
+            줄 거라는 생각에 시작했다. 보컬을 하고 싶었으나 노래는 영 꽝이었다고 한다.</p>
+        <button class="close-btn" onclick="transitionTo('index.html')">홈으로 돌아가기</button>
+            뒤로가기
+          </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom ornament -->
+  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
+
+</body>
+</html>

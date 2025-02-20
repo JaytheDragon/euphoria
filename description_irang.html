@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>이랑 캐릭터 설명</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./ui 에셋/이랑 로고.png" type="image/png">
+  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
+</head>
+<body>
+    <script>
+        // On page load, ensure the page fades in.
+        document.addEventListener("DOMContentLoaded", function() {
+          document.body.classList.add("fade-in"); // For future use if needed.
+        });
+      
+        // Use this function to navigate with a fade transition.
+        function transitionTo(url) {
+          // Remove any fade-in class and add fade-out
+          document.body.classList.remove("fade-in");
+          document.body.classList.add("fade-out");
+          // Wait for the fade-out to finish (0.5s) then navigate.
+          setTimeout(function(){
+            window.location.href = url;
+          }, 500);
+        }
+      </script>
+      
+  <!-- Fixed header & top ornament -->
+  <header>
+    <img id="logo" src="./ui 에셋/이랑 로고.png" alt="Euphoria Logo">
+  </header>
+  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+
+  <!-- .desc-page: row layout with .desc-left & .desc-right -->
+  <div class="desc-page">
+    <!-- Left side: larger character -->
+    <div class="desc-left">
+      <img src="./character/이랑_스텐딩_의상.png" alt="이랑" class="desc-character-image" />
+    </div>
+
+    <!-- Right side: two boxes stacked, top-aligned -->
+    <div class="desc-right">
+      <div class="info-box-static">
+        <h2>이름 : 이랑 E-RANG</h2>
+        <p>종족 : 유라시아 늑대</p>
+        <p>나이 : 24</p>
+        <p>키 : 178 cm</p>
+        <p>몸무게 : 68 kg</p>
+        <p>혈액형 : B형</p>
+        <P>역할 : 메인 보컬 및 리더</P>
+        <p>성격 키워드 : 열정적, 침착함, 계획적, 완벽주의</p>
+      </div>
+
+      <div class="description-box-static">
+        <p>공부도 잘 하고, 성격도 좋아 주변에 항상 사람이 많다. 하지만 실제 그의 모습은 부모님에게 완벽함을 강요받은 탓에 자기 자신에 대해서는 강박적으로 완벽을 추구하는 완벽주의자이며, 항상 실패에 대한 두려움을 안고 있으면서도 겉으로는 내색하지 않는 불안한 사람이다.
+            자신은 리더감이 아니라고 생각하지만, 나이가 가장 많고 싫은 소리를 잘 하지 않아 어쩔 수 없이 리더
+            를 맡은 것뿐이라고 생각한다. 항상 의지할 수 있을 만한 누군가를 찾고 있다.</p>
+        <button class="close-btn" onclick="transitionTo('index.html')">홈으로 돌아가기</button>
+          뒤로가기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom ornament -->
+  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
+
+</body>
+</html>

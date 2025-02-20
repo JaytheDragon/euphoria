@@ -1,395 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유포리아 캐릭터 정보</title>
-    <style>
-        @font-face {
-            font-family: 'Hakgyoansim Byeolbichhaneul';
-            src: url('./fonts/Hakgyoansim Byeolbichhaneul OTF L.otf') format('opentype');
-        }
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: auto; /* Allow scrolling */
-            font-family: 'Hakgyoansim Byeolbichhaneul', Arial, sans-serif;
-            background: url('./UI_png/배경/배경_글리터+별+그라데이션.png') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-        }
-
-        .ornament-top {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2; /* Keep ornaments in front */
-            width: 100%;
-            pointer-events: none;
-        }
-
-        .ornament-bottom {
-            position: relative;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0; /* Keep ornaments behind */
-            width: 100%;
-            pointer-events: none;
-        }
-
-        header {
-            position: fixed; /* Fix the header at the top */
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 4; /* Ensure the logo is above the modal background */
-            width: 100%;
-        }
-
-        header img {
-            width: auto;
-            height: 120px; /* Make the logo smaller */
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px; /* Reduce the gap for horizontal closeness */
-            justify-items: center;
-            padding: 50px 300px;
-            margin-top: 140px; /* Adjust for fixed header height */
-            position: relative;
-            z-index: 1;
-        }
-
-        .character-card {
-            position: relative;
-            width: 200px;
-            height: 300px;
-            background-size: cover;
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            background-image: url('./ui 에셋/캐릭배경.png'), url('./ui 에셋/컬러포인트+컬러 그라데이션.png');
-        }
-
-        .character-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        .character-card img {
-            width: 100%;
-            height: 66%;
-            object-fit: cover;
-            object-position: top; /* Show the top part of the image */
-            transform: scale(1.5); /* Scale the image to zoom in */
-            position: absolute;
-            top: 12%;
-            left: 0;
-            z-index: -1;
-        }
-
-        .character-card h3 {
-            text-align: center;
-            margin: 10px 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .info-box, .description-box {
-            display: none; /* Hide by default */
-            position: absolute;
-            right: 0; /* Start at the right edge */
-            background-size: contain;
-            border-radius: 10px;
-            color: white;
-            z-index: 3;
-        }
-
-        .info-box {
-            top: 5vh; /* Adjust as needed */
-            width: 45vw; /* Increase size */
-            background: url('./ui 에셋/인포 박스.png') no-repeat center center;
-            background-size: contain;
-            padding: 20vh; /* Increase padding */
-            text-align: center;
-        }
-
-        .description-box {
-            top: 45vh; /* Adjust as needed */
-            width: 48vw; /* Increase size */
-            background: url('./ui 에셋/설명 박스.png') no-repeat center center;
-            background-size: contain;
-            padding: 20vh; /* Increase padding */
-            text-align: center;
-        }
-
-        .info-text{
-            position: absolute;
-            top: 10px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 0vh 26vw; /* Adjust padding for text */
-            box-sizing: border-box;
-            text-align: left;
-        }
-        .description-text {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 0vh 29vw; /* Adjust padding for text */
-            box-sizing: border-box;
-            text-align: left;
-        }
-
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8); /* Only darken the background */
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1; /* Below ornaments */
-            flex-direction: column; /* Stack elements vertically */
-            overflow-y: auto; /* Allow vertical scrolling */
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            display: flex;
-            align-items: center;
-            background-size: contain;
-            padding: 50px;
-            border-radius: 10px;
-            max-width: 80vw;
-            text-align: left;
-            color: white;
-            z-index: 3; /* Above the dark background */
-        }
-
-        .modal-content img {
-            width: 40%;
-            height: auto;
-            margin-right: 20px;
-        }
-
-        .modal-content h2 {
-            margin: 0 0 10px 0;
-        }
-
-        .modal-content p {
-            margin: 0 0 20px 0;
-        }
-
-        .close-btn {
-            padding: 10px 20px;
-            background: #4B006E;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .close-btn:hover {
-            background: #6C3BAA;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-                padding: 0;
-            }
-
-            .character-card {
-                width: 140px;
-                height: 210px;
-            }
-
-            header img {
-                height: 60px;
-            }
-
-            .info-box, .description-box {
-                width: 40vw;
-                padding: 3vh;
-            }
-
-            .info-text, .description-text {
-                padding: 10px;
-            }
-
-            .modal-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .modal-content img {
-                width: 80%;
-                margin: 0 0 20px 0;
-                object-fit: contain; /* Ensure the image is fully visible */
-            }
-        }
-
-        @media (orientation: portrait) {
-            .modal-content {
-                flex-direction: column;
-                align-items: center;
-                margin-top: 120vh;
-            }
-
-            .modal-content img {
-                width: 80%;
-                height: auto;
-                margin: 0 0 20px 0;
-                object-fit: contain; /* Ensure the image is fully visible */
-            }
-
-            .info-box{
-                width: 65vw;
-                padding: 3vh;
-                margin: 10px 0;
-                padding: 23vh;
-                position: relative;
-            }
-
-            .description-box {
-                width: 52vw;
-                padding: 3vh;
-                margin: 10px 0;
-                padding: 30vh;
-                position: relative;
-            }
-
-            .info-text{
-                padding: 3vh 45vw;
-            }
-
-            .description-text {
-                padding: 10vh 50vw;
-            }
-
-            .close-btn {
-                margin-top: 50px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>유포리아 캐릭터 정보 (홈페이지)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./ui 에셋/유포리아 로고.png" type="image/png">
+  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
 </head>
 <body>
-    <header>
-        <img id="logo" src="./ui 에셋/유포리아 로고.png" alt="Euphoria Logo">
-    </header>
-
-    <img src="./ui 에셋/오나먼트 위.png" alt="Ornaments" class="ornament-top">
-
-    <div class="container">
-        <div class="character-card" onclick="openModal('바삭', '바삭 캐릭터 배경', './character/바삭_스텐딩_의상.png', './character/바삭_스텐딩_의상.png', './ui 에셋/유포리아 로고.png')" style="background-image: url('./ui 에셋/바삭 캐릭배경.png'), url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./character/바삭_스텐딩_의상.png" alt="바삭">
-        </div>
-
-        <div class="character-card" onclick="openModal('깻잎', '깻잎 캐릭터 배경', './character/깻잎_스텐딩_의상.png', './character/깻잎_스텐딩_의상.png', './ui 에셋/깻잎 로고.png')" style="background-image: url('./ui 에셋/깻잎 캐릭배경.png'), url('./ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./character/깻잎_스텐딩_의상.png" alt="깻잎">
-        </div>
-
-        <div class="character-card" onclick="openModal('네블', '네블 캐릭터 배경', './character/네블_스텐딩_의상.png', './character/네블_스텐딩_의상.png', './ui 에셋/네블 로고.png')" style="background-image: url('./ui 에셋/네블 캐릭배경.png'), url('./ui 에셋/네블 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./character/네블_스텐딩_의상.png" alt="네블">
-        </div>
-
-        <div class="character-card" onclick="openModal('묘한', '묘한 캐릭터 배경', './character/묘한_스텐딩_의상.png', './character/묘한_스텐딩_의상.png', './ui 에셋/묘한 로고.png')" style="background-image: url('./ui 에셋/묘한 캐릭배경.png'), url('./ui 에셋/묘한 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./character/묘한_스텐딩_의상.png" alt="묘한">
-        </div>
-
-        <div class="character-card" onclick="openModal('대호', '대호 캐릭터 배경', './character/대호_스텐딩_의상.png', './character/대호_스텐딩_의상.png', './ui 에셋/대호 로고.png')" style="background-image: url('./ui 에셋/대호 캐릭배경.png'), url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./character/test_2.png" alt="대호">
-        </div>
-
-        <div class="character-card" onclick="openModal('이랑', '이랑 캐릭터 배경', './character/이랑_스텐딩_의상.png', './character/이랑_스텐딩_의상.png', './ui 에셋/이랑 로고.png')" style="background-image: url('./ui 에셋/이랑 캐릭배경.png'), url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png'); background-size: cover, cover; background-position: center, center;">
-            <img src="./character/이랑_스텐딩_의상.png" alt="이랑">
-        </div>
-    </div>
-
-    <div class="info-box" id="info-box">
-        <div class="info-text">
-            <h2>Info Box</h2>
-            <p>Some information here</p>
-        </div>
-    </div>
-
-    <div class="description-box" id="description-box">
-        <div class="description-text">
-            <h2>Description Box</h2>
-            <p>Some description here</p>
-            <button class="close-btn" onclick="closeModal()">닫기</button>
-        </div>
-    </div>
-
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <img id="modal-image" src="" alt="캐릭터 사진 여기에">
-            <div>
-                <h2 id="modal-title">Character Name</h2>
-                <p id="modal-description">Description</p>
-                <button class="close-btn" onclick="closeModal()">닫기</button>
-            </div>
-        </div>
-        <div class="info-box" id="modal-info-box">
-            <div class="info-text">
-                <h2>Info Box</h2>
-                <p>Some information here</p>
-            </div>
-        </div>
-        <div class="description-box" id="modal-description-box">
-            <div class="description-text">
-                <h2>Description Box</h2>
-                <p>Some description here</p>
-                <button class="close-btn" onclick="closeModal()">닫기</button>
-            </div>
-        </div>
-    </div>
-
-    <img src="./ui 에셋/오나먼트 아래.png" alt="Ornaments" class="ornament-bottom">
-
     <script>
-        const defaultLogo = "./ui 에셋/유포리아 로고.png";
-
-        function openModal(title, description, frame, background, logo) {
-            document.getElementById('modal-title').textContent = title;
-            document.getElementById('modal-description').textContent = description;
-            document.getElementById('modal-image').src = background;
-            document.getElementById('logo').src = logo; // Change logo
-            document.getElementById('modal-info-box').style.display = 'block'; // Show info box
-            document.getElementById('modal-description-box').style.display = 'block'; // Show description box
-            document.getElementById('modal').classList.add('active');
+        // On page load, ensure the page fades in.
+        document.addEventListener("DOMContentLoaded", function() {
+          document.body.classList.add("fade-in"); // For future use if needed.
+        });
+      
+        // Use this function to navigate with a fade transition.
+        function transitionTo(url) {
+          // Remove any fade-in class and add fade-out
+          document.body.classList.remove("fade-in");
+          document.body.classList.add("fade-out");
+          // Wait for the fade-out to finish (0.5s) then navigate.
+          setTimeout(function(){
+            window.location.href = url;
+          }, 500);
         }
+      </script>
+      
+  <!-- Fixed header -->
+  <header>
+    <img id="logo" src="./ui 에셋/유포리아 로고.png" alt="Euphoria Logo">
+  </header>
 
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-            document.getElementById('logo').src = defaultLogo; // Revert to default logo
-            document.getElementById('modal-info-box').style.display = 'none'; // Hide info box
-            document.getElementById('modal-description-box').style.display = 'none'; // Hide description box
-        }
-    </script>
+  <!-- Top ornament -->
+  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+
+  <!-- Grid container of 6 character cards -->
+  <div class="container">
+
+    <!-- 1) 바삭 -->
+    <div class="character-card" 
+         onclick="transitionTo('description_basak.html')"
+         style="background-image: url('./ui 에셋/바삭 캐릭배경.png'), url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png');">
+      <img src="./character/바삭.png" alt="바삭">
+    </div>
+
+    <!-- 2) 깻잎 -->
+    <div class="character-card"
+         onclick="transitionTo('description_ggaet.html')"
+         style="background-image: url('./ui 에셋/깻잎 캐릭배경.png'), url('./ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png');">
+      <img src="./character/깻잎.png" alt="깻잎">
+    </div>
+
+    <!-- 3) 네블 -->
+    <div class="character-card"
+         onclick="transitionTo('description_neble.html')"
+         style="background-image: url('./ui 에셋/네블 캐릭배경.png'), url('./ui 에셋/네블 컬러포인트+컬러 그라데이션.png');">
+      <img src="./character/네블.png" alt="네블">
+    </div>
+
+    <!-- 4) 묘한 -->
+    <div class="character-card"
+         onclick="transitionTo('description_myohan.html')"
+         style="background-image: url('./ui 에셋/묘한 캐릭배경.png'), url('./ui 에셋/묘한 컬러포인트+컬러 그라데이션.png');">
+      <img src="./character/묘한.png" alt="묘한">
+    </div>
+
+    <!-- 5) 대호 -->
+    <div class="character-card"
+         onclick="transitionTo('description_daeho.html')"
+         style="background-image: url('./ui 에셋/대호 캐릭배경.png'), url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png');">
+      <img src="./character/대호.png" alt="대호">
+    </div>
+
+    <!-- 6) 이랑 -->
+    <div class="character-card"
+         onclick="transitionTo('description_irang.html')"
+         style="background-image: url('./ui 에셋/이랑 캐릭배경.png'), url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png');">
+      <img src="./character/이랑.png" alt="이랑">
+    </div>
+  </div>
+
+  <!-- Bottom ornament -->
+  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
 
 </body>
 </html>

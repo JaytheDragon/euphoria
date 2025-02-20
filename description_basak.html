@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>바삭 캐릭터 설명</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./ui 에셋/유포리아 로고.png" type="image/png">
+  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
+</head>
+<body>
+  <script>
+    // On page load, ensure the page fades in.
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.classList.add("fade-in"); // For future use if needed.
+    });
+  
+    // Use this function to navigate with a fade transition.
+    function transitionTo(url) {
+      // Remove any fade-in class and add fade-out
+      document.body.classList.remove("fade-in");
+      document.body.classList.add("fade-out");
+      // Wait for the fade-out to finish (0.5s) then navigate.
+      setTimeout(function(){
+        window.location.href = url;
+      }, 500);
+    }
+  </script>
+  
+  <!-- Fixed header & top ornament -->
+  <header>
+    <img id="logo" src="./ui 에셋/유포리아 로고.png" alt="Euphoria Logo">
+  </header>
+  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+
+  <!-- .desc-page: row layout with .desc-left & .desc-right -->
+  <div class="desc-page">
+    <!-- Left side: larger character -->
+    <div class="desc-left">
+      <img src="./character/바삭_스텐딩_의상.png" alt="바삭" class="desc-character-image" />
+    </div>
+
+    <!-- Right side: two boxes stacked, top-aligned -->
+    <div class="desc-right">
+      <div class="info-box-static">
+        <h2>이름 : 바삭 KRUNCH</h2>
+        <p>종족 : 북극여우</p>
+        <p>나이 : 29</p>
+        <p>키 : 174 cm</p>
+        <p>몸무게 : 65 kg</p>
+        <p>혈액형 : O</p>
+        <P>직업 : 프로듀서 겸 매니저</P>
+        <p>성격 키워드 : 열정적, 분석적, 착함, 조심스러움</p>
+      </div>
+
+      <div class="description-box-static">
+        <p>과거 한 아이돌 그룹을 히트곡 행진으로 성공시켰으나, 멤버의 스캔들로 인해 나락으로 떨어졌던 과거를 가지고 있다. 투자를 잔뜩 받아 놓고 망해버려 무일푼이 되었고, 소속사도 기울어 파산을 앞두고 있던 와중 ‘유포리아’라는 원석을 발견하게 된다. 사회 풋내기들을 보듬다 보니 핑크빛 기류에 휘말리게 되었지만, 스캔들로 회사가 무너질 뻔한 참사를 겪어 본 이상 그는 절대로 그 기류에 올라탈 생각이 없어 좋아하는 감정을 최대한 숨긴다.</p>
+        <button class="close-btn" onclick="transitionTo('index.html')">홈으로 돌아가기</button>
+          뒤로가기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom ornament -->
+  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
+
+</body>
+</html>
