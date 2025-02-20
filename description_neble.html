@@ -1,68 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>네블 캐릭터 설명</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="./ui 에셋/네블 로고.png" type="image/png">
-  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>네블 캐릭터 설명</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./ui 에셋/네블 로고.png" type="image/png" />
+    <link
+      rel="preload"
+      href="./UI_png/배경/배경_글리터+별+그라데이션.png"
+      as="image"
+    />
+  </head>
+  <body>
     <script>
-        // On page load, ensure the page fades in.
-        document.addEventListener("DOMContentLoaded", function() {
-          document.body.classList.add("fade-in"); // For future use if needed.
-        });
-      
-        // Use this function to navigate with a fade transition.
-        function transitionTo(url) {
-          // Remove any fade-in class and add fade-out
-          document.body.classList.remove("fade-in");
-          document.body.classList.add("fade-out");
-          // Wait for the fade-out to finish (0.5s) then navigate.
-          setTimeout(function(){
-            window.location.href = url;
-          }, 500);
-        }
-      </script>
-      
-  <!-- Fixed header & top ornament -->
-  <header>
-    <img id="logo" src="./ui 에셋/네블 로고.png" alt="Euphoria Logo">
-  </header>
-  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+      // On page load, ensure the page fades in.
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('fade-in'); // For future use if needed.
+      });
 
-  <!-- .desc-page: row layout with .desc-left & .desc-right -->
-  <div class="desc-page">
-    <!-- Left side: larger character -->
-    <div class="desc-left">
-      <img src="./character/네블_스텐딩_의상.png" alt="네블" class="desc-character-image" />
-    </div>
+      // Use this function to navigate with a fade transition.
+      function transitionTo(url) {
+        // Remove any fade-in class and add fade-out
+        document.body.classList.remove('fade-in');
+        document.body.classList.add('fade-out');
+        // Wait for the fade-out to finish (0.5s) then navigate.
+        setTimeout(function () {
+          window.location.href = url;
+        }, 500);
+      }
+    </script>
 
-    <!-- Right side: two boxes stacked, top-aligned -->
-    <div class="desc-right">
-      <div class="info-box-static">
-        <h2>이름 : 네블 NEBEL</h2>
-        <p>종족 : 터키시 앙고라</p>
-        <p>나이 : 22</p>
-        <p>키 : 166.8 cm</p>
-        <p>몸무게 : 63 kg</p>
-        <p>혈액형 : AB형</p>
-        <P>역할 : 일렉 기타 및 서브 보컬</P>
-        <p>성격 키워드 : 츤데레, 단호함, 무관심, 내향적</p>
+    <!-- Fixed header & top ornament -->
+    <header>
+      <img id="logo" src="./ui 에셋/네블 로고.png" alt="Euphoria Logo" />
+    </header>
+    <img
+      src="./ui 에셋/오나먼트 위.png"
+      alt="Top Ornament"
+      class="ornament-top"
+    />
+
+    <!-- .desc-page: row layout with .desc-left & .desc-right -->
+    <div class="desc-page">
+      <!-- Left side: larger character -->
+      <div class="desc-left">
+        <img
+          src="./character/full/네블_스텐딩_의상.png"
+          alt="네블"
+          class="desc-character-image"
+        />
       </div>
 
-      <div class="description-box-static">
-        <p>어릴 때부터 음악에 조예가 깊어 모든 악기를 다룰 줄 알고, 작곡에도 소질이 있어 음악적으로는 가장 완성되어 있다. 하지만 너무 잘난 바람에 타인의 의견을 잘 수용하지 못하고 사회성이 그리 뛰어나지 않아서 멤버들과 가끔씩 마찰을 일으키곤 한다. 그래도 최대한 이해시키기 위해 노력하는 편이다.
-            싹싹하고 듣기 좋은 말보다 직설적이고 날카로운 말을 자주 하지만 내심 정이 깊고 주변 사람들을 아낀다. 그저 표현을 굉장히 못할 뿐인 것이다.</p>
-        <button class="close-btn" onclick="transitionTo('index.html')">홈으로 돌아가기</button>
+      <!-- Right side: two boxes stacked, top-aligned -->
+      <div class="desc-right">
+        <div class="info-box-static">
+          <h2>이름 : 네블 NEBEL</h2>
+          <p>종족 : 터키시 앙고라</p>
+          <p>나이 : 22</p>
+          <p>키 : 166.8 cm</p>
+          <p>몸무게 : 63 kg</p>
+          <p>혈액형 : AB형</p>
+          <p>역할 : 일렉 기타 및 서브 보컬</p>
+          <p>성격 키워드 : 츤데레, 단호함, 무관심, 내향적</p>
+        </div>
+
+        <div class="description-box-static">
+          <p>
+            어릴 때부터 음악에 조예가 깊어 모든 악기를 다룰 줄 알고, 작곡에도
+            소질이 있어 음악적으로는 가장 완성되어 있다. 하지만 너무 잘난 바람에
+            타인의 의견을 잘 수용하지 못하고 사회성이 그리 뛰어나지 않아서
+            멤버들과 가끔씩 마찰을 일으키곤 한다. 그래도 최대한 이해시키기 위해
+            노력하는 편이다. 싹싹하고 듣기 좋은 말보다 직설적이고 날카로운 말을
+            자주 하지만 내심 정이 깊고 주변 사람들을 아낀다. 그저 표현을 굉장히
+            못할 뿐인 것이다.
+          </p>
+          <button class="close-btn" onclick="transitionTo('index.html')">
+            홈으로 돌아가기
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bottom ornament -->
-  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
-
-</body>
+    <!-- Bottom ornament -->
+    <img
+      src="./ui 에셋/오나먼트 아래.png"
+      alt="Bottom Ornament"
+      class="ornament-bottom"
+    />
+  </body>
 </html>

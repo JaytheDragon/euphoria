@@ -1,69 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>묘한 캐릭터 설명</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="./ui 에셋/묘한 로고.png" type="image/png">
-  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>묘한 캐릭터 설명</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./ui 에셋/묘한 로고.png" type="image/png" />
+    <link
+      rel="preload"
+      href="./UI_png/배경/배경_글리터+별+그라데이션.png"
+      as="image"
+    />
+  </head>
+  <body>
     <script>
-        // On page load, ensure the page fades in.
-        document.addEventListener("DOMContentLoaded", function() {
-          document.body.classList.add("fade-in"); // For future use if needed.
-        });
-      
-        // Use this function to navigate with a fade transition.
-        function transitionTo(url) {
-          // Remove any fade-in class and add fade-out
-          document.body.classList.remove("fade-in");
-          document.body.classList.add("fade-out");
-          // Wait for the fade-out to finish (0.5s) then navigate.
-          setTimeout(function(){
-            window.location.href = url;
-          }, 500);
-        }
-      </script>
-      
-  <!-- Fixed header & top ornament -->
-  <header>
-    <img id="logo" src="./ui 에셋/묘한 로고.png" alt="Euphoria Logo">
-  </header>
-  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+      // On page load, ensure the page fades in.
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('fade-in'); // For future use if needed.
+      });
 
-  <!-- .desc-page: row layout with .desc-left & .desc-right -->
-  <div class="desc-page">
-    <!-- Left side: larger character -->
-    <div class="desc-left">
-      <img src="./character/묘한_스텐딩_의상.png" alt="묘한" class="desc-character-image" />
-    </div>
+      // Use this function to navigate with a fade transition.
+      function transitionTo(url) {
+        // Remove any fade-in class and add fade-out
+        document.body.classList.remove('fade-in');
+        document.body.classList.add('fade-out');
+        // Wait for the fade-out to finish (0.5s) then navigate.
+        setTimeout(function () {
+          window.location.href = url;
+        }, 500);
+      }
+    </script>
 
-    <!-- Right side: two boxes stacked, top-aligned -->
-    <div class="desc-right">
-      <div class="info-box-static">
-        <h2>이름 : 묘한 MYO-HAN</h2>
-        <p>종족 : 서벌캣</p>
-        <p>나이 : 20</p>
-        <p>키 : 166.8 cm</p>
-        <p>몸무게 : 54 kg</p>
-        <p>혈액형 : O형</p>
-        <P>역할 : 피아노</P>
-        <p>성격 키워드 : 슈퍼 I, 조심스러움, 조용함, 겁쟁이</p>
+    <!-- Fixed header & top ornament -->
+    <header>
+      <img id="logo" src="./ui 에셋/full/묘한 로고.png" alt="Euphoria Logo" />
+    </header>
+    <img
+      src="./ui 에셋/오나먼트 위.png"
+      alt="Top Ornament"
+      class="ornament-top"
+    />
+
+    <!-- .desc-page: row layout with .desc-left & .desc-right -->
+    <div class="desc-page">
+      <!-- Left side: larger character -->
+      <div class="desc-left">
+        <img
+          src="./character/full/묘한_스텐딩_의상.png"
+          alt="묘한"
+          class="desc-character-image"
+        />
       </div>
 
-      <div class="description-box-static">
-        <p>키가 작고 왜소해 학창 시절 꾸준히 괴롭힘을 당해 자존감이 결여되어 있다. 도망치듯 숨은 도서관에서 책을 많이 읽었고, 그 덕에 굉장히 섬세하고 사려 깊은 성격을 갖고 있지만 낮은 자존감 탓에 그것이 외부로 드러나지는 않는다. 항상 속으로 수백 번 끙끙대다가 포기 내지 실패하고 마는 타입이다.
-            주변 환경에 예민하고 작은 변화도 잘 캐치할 수 있어 멤버 중 네블의 음악적 디테일을 그나마 가장 잘 
-            이해한다. 하지만 성격은 절대로 안 맞는다.</p>
-        <button class="close-btn" onclick="transitionTo('index.html')">홈으로 돌아가기</button>
+      <!-- Right side: two boxes stacked, top-aligned -->
+      <div class="desc-right">
+        <div class="info-box-static">
+          <h2>이름 : 묘한 MYO-HAN</h2>
+          <p>종족 : 서벌캣</p>
+          <p>나이 : 20</p>
+          <p>키 : 166.8 cm</p>
+          <p>몸무게 : 54 kg</p>
+          <p>혈액형 : O형</p>
+          <p>역할 : 피아노</p>
+          <p>성격 키워드 : 슈퍼 I, 조심스러움, 조용함, 겁쟁이</p>
+        </div>
+
+        <div class="description-box-static">
+          <p>
+            키가 작고 왜소해 학창 시절 꾸준히 괴롭힘을 당해 자존감이 결여되어
+            있다. 도망치듯 숨은 도서관에서 책을 많이 읽었고, 그 덕에 굉장히
+            섬세하고 사려 깊은 성격을 갖고 있지만 낮은 자존감 탓에 그것이 외부로
+            드러나지는 않는다. 항상 속으로 수백 번 끙끙대다가 포기 내지 실패하고
+            마는 타입이다. 주변 환경에 예민하고 작은 변화도 잘 캐치할 수 있어
+            멤버 중 네블의 음악적 디테일을 그나마 가장 잘 이해한다. 하지만
+            성격은 절대로 안 맞는다.
+          </p>
+          <button class="close-btn" onclick="transitionTo('index.html')">
+            홈으로 돌아가기
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bottom ornament -->
-  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
-
-</body>
+    <!-- Bottom ornament -->
+    <img
+      src="./ui 에셋/오나먼트 아래.png"
+      alt="Bottom Ornament"
+      class="ornament-bottom"
+    />
+  </body>
 </html>
