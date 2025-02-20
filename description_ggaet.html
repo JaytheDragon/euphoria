@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>깻잎 캐릭터 설명</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./ui 에셋/깻잎 로고.png" type="image/png">
+  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
+</head>
+<body>
+    <script>
+        // On page load, ensure the page fades in.
+        document.addEventListener("DOMContentLoaded", function() {
+          document.body.classList.add("fade-in"); // For future use if needed.
+        });
+      
+        // Use this function to navigate with a fade transition.
+        function transitionTo(url) {
+          // Remove any fade-in class and add fade-out
+          document.body.classList.remove("fade-in");
+          document.body.classList.add("fade-out");
+          // Wait for the fade-out to finish (0.5s) then navigate.
+          setTimeout(function(){
+            window.location.href = url;
+          }, 500);
+        }
+      </script>
+      
+  <!-- Fixed header & top ornament -->
+  <header>
+    <img id="logo" src="./ui 에셋/깻잎 로고.png" alt="Euphoria Logo">
+  </header>
+  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+
+  <!-- .desc-page: row layout with .desc-left & .desc-right -->
+  <div class="desc-page">
+    <!-- Left side: larger character -->
+    <div class="desc-left">
+      <img src="./character/깻잎_스텐딩_의상.png" alt="깻잎" class="desc-character-image" />
+    </div>
+
+    <!-- Right side: two boxes stacked, top-aligned -->
+    <div class="desc-right">
+      <div class="info-box-static">
+        <h2>이름 : 깻잎 KENNIP</h2>
+        <p>종족 : 네코마타</p>
+        <p>나이 : 22</p>
+        <p>키 : 171 cm</p>
+        <p>몸무게 : 58 kg</p>
+        <p>혈액형 : A형</p>
+        <P>역할 : 베이스</P>
+        <p>성격 키워드 : 외향적, 온화함, 낙천적, 착함</p>
+      </div>
+
+      <div class="description-box-static">
+        <p>집안 사정으로 인해 이사를 자주 다녀 교우 관계를 제대로 형성하지 못했다. 그래서 어떻게든 사귄 친구를 잃고 싶지 않은 마음에 속마음을 감추고 웃는 모습만 보여주는 것이 버릇이 되었다.
+            대호의 높은 텐션과 과한 농담을 유일하게 모두 받아내며 분위기를 푸는 것은 그때 배운 눈치와 처세술의 일환이다. 어릴 때 바삭에게 기타를 배웠지만, 고등학교 밴드부에서 베이스가 필요하다는 말에 기타를 놓고 베이스로 전향했다.</p>
+        <button class="close-btn" onclick="transitionTo('index.html')">홈으로 돌아가기</button>
+          뒤로가기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom ornament -->
+  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
+
+</body>
+</html>
