@@ -139,8 +139,8 @@ header img {
    (Horizontal: bigger char on left,
     two boxes stacked on right)
    ========================== */
-.desc-page {
-  /* Large top margin so the character never overlaps the ornament */
+.desc-page-legacy {
+  Large top margin so the character never overlaps the ornament
   margin-top: 200px;
   /* Center everything horizontally within the page */
   width: 1200px; /* or any max container width you prefer */
@@ -162,9 +162,18 @@ header img {
   z-index: 1;
 }
 
+.desc-page {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+}
+
 /* Left column: the character */
-.desc-left {
+.desc-illust {
   /* We only have the image, so no special flex needed here */
+  grid-row: 1 / span 2;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Make the character image bigger but not so large it hits the ornament */
@@ -189,8 +198,9 @@ header img {
   width: 500px;
   background: url('./ui 에셋/인포 박스2.png') no-repeat center center;
   background-size: contain;
+  background-position: left;
   text-align: left;
-  padding: 8vh 170px; /* enough space to display the shape */
+  padding: 48px;
   box-sizing: border-box;
   border-radius: 10px;
 }
@@ -200,34 +210,50 @@ header img {
   width: 500px;
   background: url('./ui 에셋/설명 박스2.png') no-repeat center center;
   background-size: contain;
-  text-align: center;
-  padding: 8vh 150px;
+  background-position: left;
+  text-align: left;
+  padding: 48px;
   box-sizing: border-box;
   border-radius: 10px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.description-box-static > p {
+  word-break: keep-all;
 }
 
 /* Back button style */
 .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  margin-top: 25px;
   padding: 10px 20px;
-  background: #4b006e;
+  background: transparent;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Hakgyoansim Byeolbichhaneul', Arial, sans-serif;
 }
+
+.close-btn > img {
+  width: 50px;
+  margin-right: 10px;
+}
+
 .close-btn:hover {
-  background: #6c3baa;
+  // TODO
 }
 
 /* ==========================
      RESPONSIVE (Portrait/Mobile)
      ========================== */
 @media (max-width: 768px) {
-  .desc-page {
+  .desc-page-legacy {
     margin-top: 140px;
     flex-direction: column;
     align-items: center; /* center both columns in mobile view */
@@ -235,11 +261,23 @@ header img {
     min-height: auto;
     z-index: 1;
   }
+
+  .desc-page {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+
   .desc-character-image {
     width: 300px;
   }
+
+  .desc-illust {
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
   /* Info Box using 인포 박스.png */
-  .info-box-static {
+  .info-box-static-legacy {
     width: 500px;
     background: url('./ui 에셋/인포 박스2.png') no-repeat center center;
     background-size: contain;
@@ -249,8 +287,16 @@ header img {
     border-radius: 10px;
   }
 
+  .info-box-static, .description-box-static {
+    margin: 0 25px;
+  }
+
+  .close-btn > img {
+    margin-right: 0;
+  }
+
   /* Description Box using 설명 박스.png */
-  .description-box-static {
+  .description-box-static-legacy {
     width: 500px;
     background: url('./ui 에셋/설명 박스2.png') no-repeat center center;
     background-size: contain;
