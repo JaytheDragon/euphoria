@@ -87,12 +87,13 @@ header img {
   position: relative;
   z-index: 1;
 }
+
 .character-card {
   position: relative;
   width: 200px;
   height: 300px;
   background-size: cover;
-  border-radius: 0px;
+  border-radius: 10%;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -102,10 +103,12 @@ header img {
   background-image: url('./ui 에셋/캐릭배경.png'),
     url('./ui 에셋/컬러포인트+컬러 그라데이션.png');
 }
+
 .character-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); */
 }
+
 .character-card img {
   width: 100%;
   height: 100%;
