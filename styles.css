@@ -80,7 +80,7 @@ header img {
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 85px;
   justify-items: center;
   /* padding: 50px 300px; */
   width: auto;
@@ -125,7 +125,7 @@ header img {
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 30px;
     padding: 0;
   }
   .character-card {
