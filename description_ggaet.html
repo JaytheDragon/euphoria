@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>깻잎 캐릭터 설명</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="./ui 에셋/깻잎 로고.png" type="image/png" />
+    <link rel="icon" href="./ui 에셋/대호 로고.png" type="image/png" />
     <link
       rel="preload"
       href="./UI_png/배경/배경_글리터+별+그라데이션.png"
@@ -41,19 +41,18 @@
       class="ornament-top"
     />
 
-    <!-- .desc-page: row layout with .desc-left & .desc-right -->
-    <div class="desc-page">
-      <!-- Left side: larger character -->
-      <div class="desc-left">
-        <img
-          src="./character/full/깻잎_스텐딩_의상.png"
-          alt="깻잎"
-          class="desc-character-image"
-        />
-      </div>
+    <div class="body-container">
+      <!-- .desc-page: row layout with .desc-left & .desc-right -->
+      <div class="desc-page">
+        <!-- Left side: larger character -->
+        <div class="desc-illust">
+          <img
+            src="./character/full/깻잎_스텐딩_의상.png"
+            alt="대호"
+            class="desc-character-image"
+          />
+        </div>
 
-      <!-- Right side: two boxes stacked, top-aligned -->
-      <div class="desc-right">
         <div class="info-box-static">
           <h2>이름 : 깻잎 KENNIP</h2>
           <p>종족 : 네코마타</p>
@@ -66,19 +65,36 @@
         </div>
 
         <div class="description-box-static">
-          <p>
+          <!-- <p>
             집안 사정으로 인해 이사를 자주 다녀 교우 관계를 제대로 형성하지
             못했다. 그래서 어떻게든 사귄 친구를 잃고 싶지 않은 마음에 속마음을
             감추고 웃는 모습만 보여주는 것이 버릇이 되었다. 대호의 높은 텐션과
             과한 농담을 유일하게 모두 받아내며 분위기를 푸는 것은 그때 배운
             눈치와 처세술의 일환이다. 어릴 때 바삭에게 기타를 배웠지만, 고등학교
             밴드부에서 베이스가 필요하다는 말에 기타를 놓고 베이스로 전향했다.
+          </p> -->
+          <p>
+            집안 사정으로 인해 이사를 자주 다녀 교우 관계를 제대로 형성하지
+            못했다.
           </p>
-          <button class="close-btn" onclick="transitionTo('index.html')">
-            홈으로 돌아가기
-          </button>
+          <p>
+            그래서 어떻게든 사귄 친구를 잃고 싶지 않은 마음에 속마음을 감추고
+            웃는 모습만 보여주는 것이 버릇이 되었다.
+          </p>
+          <p>
+            대호의 높은 텐션과 과한 농담을 유일하게 모두 받아내며 분위기를 푸는
+            것은 그때 배운 눈치와 처세술의 일환이다.
+          </p>
+          <p>
+            어릴 때 바삭에게 기타를 배웠지만, 고등학교 밴드부에서 베이스가
+            필요하다는 말에 기타를 놓고 베이스로 전향했다.
+          </p>
         </div>
       </div>
+      <button class="close-btn" onclick="transitionTo('index.html')">
+        <img src="./ui 에셋/Back-Icon.png" />
+        홈으로 돌아가기
+      </button>
     </div>
 
     <!-- Bottom ornament -->
