@@ -1,88 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>유포리아 캐릭터 정보 (홈페이지)</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="./ui 에셋/유포리아 로고.png" type="image/png">
-  <link rel="preload" href="./UI_png/배경/배경_글리터+별+그라데이션.png" as="image">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유포리아 캐릭터 정보 (홈페이지)</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./ui 에셋/유포리아 로고.png" type="image/png" />
+    <link
+      rel="preload"
+      href="./UI_png/배경/배경_글리터+별+그라데이션.png"
+      as="image"
+    />
+  </head>
+  <body>
     <script>
-        // On page load, ensure the page fades in.
-        document.addEventListener("DOMContentLoaded", function() {
-          document.body.classList.add("fade-in"); // For future use if needed.
+      // On page load, ensure the page fades in.
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('fade-in'); // For future use if needed.
+
+        // mouse hover event
+        const cards = document.querySelectorAll('.container > .character-card');
+        cards.forEach((card) => {
+          card.addEventListener('mouseover', () => {
+            const img = card.querySelector('img');
+            img.src = img.src.replace(encodeURI('기본'), encodeURI('표정'));
+          });
+
+          card.addEventListener('mouseout', () => {
+            const img = card.querySelector('img');
+            img.src = img.src.replace(encodeURI('표정'), encodeURI('기본'));
+          });
         });
-      
-        // Use this function to navigate with a fade transition.
-        function transitionTo(url) {
-          // Remove any fade-in class and add fade-out
-          document.body.classList.remove("fade-in");
-          document.body.classList.add("fade-out");
-          // Wait for the fade-out to finish (0.5s) then navigate.
-          setTimeout(function(){
-            window.location.href = url;
-          }, 500);
-        }
-      </script>
-      
-  <!-- Fixed header -->
-  <header>
-    <img id="logo" src="./ui 에셋/유포리아 로고.png" alt="Euphoria Logo">
-  </header>
+      });
 
-  <!-- Top ornament -->
-  <img src="./ui 에셋/오나먼트 위.png" alt="Top Ornament" class="ornament-top">
+      // Use this function to navigate with a fade transition.
+      function transitionTo(url) {
+        // Remove any fade-in class and add fade-out
+        document.body.classList.remove('fade-in');
+        document.body.classList.add('fade-out');
+        // Wait for the fade-out to finish (0.5s) then navigate.
+        setTimeout(function () {
+          window.location.href = url;
+        }, 500);
+      }
+    </script>
 
-  <!-- Grid container of 6 character cards -->
-  <div class="container">
+    <!-- Fixed header -->
+    <header>
+      <img id="logo" src="./ui 에셋/유포리아 로고.png" alt="Euphoria Logo" />
+    </header>
 
-    <!-- 1) 바삭 -->
-    <div class="character-card" 
-         onclick="transitionTo('description_basak.html')"
-         style="background-image: url('./ui 에셋/바삭 캐릭배경.png'), url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png');">
-      <img src="./character/바삭.png" alt="바삭">
+    <!-- Top ornament -->
+    <img
+      src="./ui 에셋/오나먼트 위.png"
+      alt="Top Ornament"
+      class="ornament-top"
+    />
+
+    <!-- Grid container of 6 character cards -->
+    <div class="container">
+      <!-- 1) 바삭 -->
+      <div
+        class="character-card"
+        onclick="transitionTo('description_basak.html')"
+        style="
+          background-image: url('./ui 에셋/바삭 캐릭배경.png'),
+            url('./ui 에셋/바삭 컬러포인트+컬러 그라데이션.png');
+        "
+      >
+        <img src="./character/card/바삭_기본.png" alt="바삭" />
+      </div>
+
+      <!-- 2) 깻잎 -->
+      <div
+        class="character-card"
+        onclick="transitionTo('description_ggaet.html')"
+        style="
+          background-image: url('./ui 에셋/깻잎 캐릭배경.png'),
+            url('./ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png');
+        "
+      >
+        <img src="./character/card/깻잎_기본.png" alt="깻잎" />
+      </div>
+
+      <!-- 3) 네블 -->
+      <div
+        class="character-card"
+        onclick="transitionTo('description_neble.html')"
+        style="
+          background-image: url('./ui 에셋/네블 캐릭배경.png'),
+            url('./ui 에셋/네블 컬러포인트+컬러 그라데이션.png');
+        "
+      >
+        <img src="./character/card/네블_기본.png" alt="네블" />
+      </div>
+
+      <!-- 4) 묘한 -->
+      <div
+        class="character-card"
+        onclick="transitionTo('description_myohan.html')"
+        style="
+          background-image: url('./ui 에셋/묘한 캐릭배경.png'),
+            url('./ui 에셋/묘한 컬러포인트+컬러 그라데이션.png');
+        "
+      >
+        <img src="./character/card/묘한_기본.png" alt="묘한" />
+      </div>
+
+      <!-- 5) 대호 -->
+      <div
+        class="character-card"
+        onclick="transitionTo('description_daeho.html')"
+        style="
+          background-image: url('./ui 에셋/대호 캐릭배경.png'),
+            url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png');
+        "
+      >
+        <img src="./character/card/대호_기본.png" alt="대호" />
+      </div>
+
+      <!-- 6) 이랑 -->
+      <div
+        class="character-card"
+        onclick="transitionTo('description_irang.html')"
+        style="
+          background-image: url('./ui 에셋/이랑 캐릭배경.png'),
+            url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png');
+        "
+      >
+        <img src="./character/card/이랑_기본.png" alt="이랑" />
+      </div>
     </div>
 
-    <!-- 2) 깻잎 -->
-    <div class="character-card"
-         onclick="transitionTo('description_ggaet.html')"
-         style="background-image: url('./ui 에셋/깻잎 캐릭배경.png'), url('./ui 에셋/깻잎 컬러포인트+컬러 그라데이션.png');">
-      <img src="./character/깻잎.png" alt="깻잎">
-    </div>
-
-    <!-- 3) 네블 -->
-    <div class="character-card"
-         onclick="transitionTo('description_neble.html')"
-         style="background-image: url('./ui 에셋/네블 캐릭배경.png'), url('./ui 에셋/네블 컬러포인트+컬러 그라데이션.png');">
-      <img src="./character/네블.png" alt="네블">
-    </div>
-
-    <!-- 4) 묘한 -->
-    <div class="character-card"
-         onclick="transitionTo('description_myohan.html')"
-         style="background-image: url('./ui 에셋/묘한 캐릭배경.png'), url('./ui 에셋/묘한 컬러포인트+컬러 그라데이션.png');">
-      <img src="./character/묘한.png" alt="묘한">
-    </div>
-
-    <!-- 5) 대호 -->
-    <div class="character-card"
-         onclick="transitionTo('description_daeho.html')"
-         style="background-image: url('./ui 에셋/대호 캐릭배경.png'), url('./ui 에셋/대호 컬러포인트+컬러 그라데이션.png');">
-      <img src="./character/대호.png" alt="대호">
-    </div>
-
-    <!-- 6) 이랑 -->
-    <div class="character-card"
-         onclick="transitionTo('description_irang.html')"
-         style="background-image: url('./ui 에셋/이랑 캐릭배경.png'), url('./ui 에셋/이랑 컬러포인트+컬러 그라데이션.png');">
-      <img src="./character/이랑.png" alt="이랑">
-    </div>
-  </div>
-
-  <!-- Bottom ornament -->
-  <img src="./ui 에셋/오나먼트 아래.png" alt="Bottom Ornament" class="ornament-bottom">
-
-</body>
+    <!-- Bottom ornament -->
+    <img
+      src="./ui 에셋/오나먼트 아래.png"
+      alt="Bottom Ornament"
+      class="ornament-bottom"
+    />
+  </body>
 </html>
