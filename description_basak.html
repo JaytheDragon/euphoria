@@ -11,6 +11,7 @@
       href="./UI_png/배경/배경_글리터+별+그라데이션.png"
       as="image"
     />
+    <script src="./customAudioPlayer.js" async></script>
   </head>
   <body>
     <script>
@@ -45,12 +46,34 @@
       <!-- .desc-page: row layout with .desc-left & .desc-right -->
       <div class="desc-page">
         <!-- Left side: larger character -->
-        <div class="desc-illust">
-          <img
-            src="./character/full/바삭_스텐딩_의상.png"
-            alt="바삭"
-            class="desc-character-image"
-          />
+        <div class="desc-left">
+          <div class="desc-left__container">
+            <img
+              src="./character/full/바삭_스텐딩_의상.png"
+              alt="바삭"
+              class="desc-character-image"
+            />
+            <div class="audio-container">
+              <div class="audio-container__player">
+                <button>
+                  <img
+                    class="audio-container__player__icon"
+                    src="./ui 에셋/play-circle.svg"
+                  />
+                  <audio src="./sample/바삭 1.wav"></audio>
+                </button>
+              </div>
+              <div class="audio-container__player">
+                <button>
+                  <img
+                    class="audio-container__player__icon"
+                    src="./ui 에셋/play-circle.svg"
+                  />
+                  <audio src="./sample/바삭 2.wav"></audio>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="info-box-static">

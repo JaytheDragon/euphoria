@@ -121,6 +121,11 @@ header img {
   z-index: -1;
 }
 
+.info-text {
+  margin-top: 50px;
+  font-size: 20px;
+}
+
 /* Responsive homepage grid */
 @media (max-width: 768px) {
   .container {
@@ -143,7 +148,7 @@ header img {
     two boxes stacked on right)
    ========================== */
 .desc-page-legacy {
-  Large top margin so the character never overlaps the ornament
+  /* Large top margin so the character never overlaps the ornament */
   margin-top: 200px;
   /* Center everything horizontally within the page */
   width: 1200px; /* or any max container width you prefer */
@@ -173,11 +178,47 @@ header img {
 }
 
 /* Left column: the character */
-.desc-illust {
+.desc-left {
   /* We only have the image, so no special flex needed here */
   grid-row: 1 / span 2;
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 100%;
+}
+
+.desc-left__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+}
+
+.audio-container {
+  display: flex;
+  margin-top: 25px;
+}
+
+.audio-container__player {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-container__player:nth-child(1) {
+  margin-right: 25px;
+}
+
+.audio-container__player > button {
+  background: transparent;
+  border: none;
+  width: 70px;
+}
+
+.audio-container__player__icon {
+  width: 100%;
+  height: 100%;
 }
 
 /* Make the character image bigger but not so large it hits the ornament */
@@ -219,7 +260,6 @@ header img {
   padding: 48px;
   box-sizing: border-box;
   border-radius: 10px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -250,7 +290,7 @@ header img {
 }
 
 .close-btn:hover {
-  // TODO
+  /* TODO */
 }
 
 /* ==========================
@@ -275,9 +315,10 @@ header img {
     width: 300px;
   }
 
-  .desc-illust {
-    justify-content: center;
+  .desc-left {
+    align-items: center;
     margin-bottom: 25px;
+    width: 100vw;
   }
 
   /* Info Box using 인포 박스.png */
