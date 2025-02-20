@@ -163,6 +163,7 @@ header img {
 }
 
 .desc-page {
+  width: 100vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 80%;
@@ -195,7 +196,7 @@ header img {
 
 /* Info Box using 인포 박스.png */
 .info-box-static {
-  width: 500px;
+  width: 100%;
   background: url('./ui 에셋/인포 박스2.png') no-repeat center center;
   background-size: contain;
   background-position: left;
@@ -207,7 +208,7 @@ header img {
 
 /* Description Box using 설명 박스.png */
 .description-box-static {
-  width: 500px;
+  width: 100%;
   background: url('./ui 에셋/설명 박스2.png') no-repeat center center;
   background-size: contain;
   background-position: left;
@@ -287,12 +288,16 @@ header img {
     border-radius: 10px;
   }
 
-  .info-box-static, .description-box-static {
-    margin: 0 25px;
-  }
+  /* .info-box-static, .description-box-static {
+    margin-left: 10px;
+  } */
 
   .close-btn > img {
     margin-right: 0;
+  }
+
+  .close-btn {
+    padding-left: 0;
   }
 
   /* Description Box using 설명 박스.png */
