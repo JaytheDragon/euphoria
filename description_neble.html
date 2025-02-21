@@ -16,6 +16,7 @@
   </head>
   <body>
     <script>
+      let transitionTimeout;
       // On page load, ensure the page fades in.
       document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.add('fade-in'); // For future use if needed.
@@ -23,11 +24,13 @@
 
       // Use this function to navigate with a fade transition.
       function transitionTo(url) {
+        if (transitionTimeout) return;
+
         // Remove any fade-in class and add fade-out
         document.body.classList.remove('fade-in');
         document.body.classList.add('fade-out');
         // Wait for the fade-out to finish (0.5s) then navigate.
-        setTimeout(function () {
+        transitionTimeout = setTimeout(function () {
           window.location.href = url;
         }, 500);
       }
