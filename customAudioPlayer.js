@@ -38,7 +38,7 @@ players.forEach((player) => {
 
   function audioEnd() {
     isPlaying = false;
-    icon.src = './ui 에셋/play-circle.svg';
+    icon.src = './ui 에셋/play.png';
     player.dataset.playing = 'false';
   }
 
