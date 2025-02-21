@@ -124,6 +124,7 @@ header img {
 .info-text {
   margin-top: 50px;
   font-size: 20px;
+  text-align: center;
 }
 
 /* Responsive homepage grid */
@@ -293,10 +294,19 @@ header img {
   /* TODO */
 }
 
+.flex-col-center-container {
+}
+
 /* ==========================
      RESPONSIVE (Portrait/Mobile)
      ========================== */
 @media (max-width: 768px) {
+  .flex-col-center-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
   .desc-page-legacy {
     margin-top: 140px;
     flex-direction: column;
@@ -319,6 +329,10 @@ header img {
     align-items: center;
     margin-bottom: 25px;
     width: 100vw;
+  }
+
+  .desc-left__container {
+    width: auto;
   }
 
   /* Info Box using 인포 박스.png */
