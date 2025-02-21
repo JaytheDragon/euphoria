@@ -14,7 +14,7 @@ players.forEach((player) => {
     if (isPlaying) {
       audio.pause();
       audio.currentTime = 0;
-      icon.src = './ui 에셋/play-circle.svg';
+      icon.src = './ui 에셋/play.png';
     } else {
       // 현재 재생 중인 모든 오디오를 멈추기
       players.forEach((otherPlayer) => {
@@ -23,14 +23,14 @@ players.forEach((player) => {
         if (otherAudio !== audio) {
           otherAudio.pause();
           otherAudio.currentTime = 0;
-          otherIcon.src = './ui 에셋/play-circle.svg';
+          otherIcon.src = './ui 에셋/play.png';
           otherPlayer.dataset.playing = 'false';
         }
       });
 
       audio.volume = 1.0;
       audio.play();
-      icon.src = './ui 에셋/stop-circle.svg';
+      icon.src = './ui 에셋/stop.png';
     }
     isPlaying = !isPlaying;
     player.dataset.playing = isPlaying ? 'true' : 'false';

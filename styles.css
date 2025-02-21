@@ -213,7 +213,7 @@ header img {
 .audio-container__player > button {
   background: transparent;
   border: none;
-  width: 70px;
+  width: 100px;
 }
 
 .audio-container__player__icon {
